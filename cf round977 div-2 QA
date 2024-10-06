@@ -1,0 +1,28 @@
+import java.util.*;
+public class cf {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+        while(t--!=0){
+            int n = sc.nextInt();
+            long[] a = new long[n];
+            ArrayList <Long> ar=new ArrayList<>();
+            for (int i = 0; i < n; i++) {
+                a[i] = sc.nextLong();
+            }
+            Arrays.sort(a);
+            for (int i=0;i<n;i++)
+            {
+                ar.add(a[i]);
+            }
+            while(ar.size()!=1)
+            {
+                long k=(ar.get(0)+ar.get(1))/2;
+                ar.remove(1);
+                ar.remove(0);
+                ar.add(0,k);
+            }
+            System.out.println(ar.get(0));
+        }
+    }
+}
