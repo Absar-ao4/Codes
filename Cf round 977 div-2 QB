@@ -1,0 +1,46 @@
+import java.util.*;
+public class cf{
+
+    static int checkmex(int a[],int n)
+    {
+        int mex = 0;
+        for (int i = 0; i < n; i++) {
+            if (a[i] == mex) {
+                mex++;
+            } else if (a[i] > mex) {
+                break;
+            }
+        }
+        return mex;
+    }
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        cf ob=new cf();
+        int t=sc.nextInt();
+        while(t--!=0)
+        {
+            int n=sc.nextInt();
+            int m=sc.nextInt();
+            int a[]= new int[n];
+          //  LinkedList <Integer> ll=new LinkedList<>();
+            for(int i=0;i<n;i++)
+            {
+                a[i]=sc.nextInt();
+            }
+            Arrays.sort(a);
+            int mex=cf.checkmex(a,n);
+           // System.out.println(mex);
+            int maxMex = mex;
+            for (int i = 0; i < n; i++) {
+                if(mex%m==a[i]&&a[i-1]==a[i])
+                {
+                    a[i]=mex;
+                    Arrays.sort(a);
+                    mex=cf.checkmex(a,n);
+                }
+                maxMex=Math.max(maxMex,mex);
+            }
+            System.out.println(maxMex);
+        }
+    }
+}
