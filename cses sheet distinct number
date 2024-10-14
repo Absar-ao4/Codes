@@ -1,0 +1,23 @@
+ #include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+		long long int n;
+		cin>>n;
+		long long int x[n];
+		long long int c=1;
+
+		for (int i = 0; i < n; ++i)
+		{
+			cin >> x[i];
+			//if(y.find(x[i])==y.end()){y.insert(x[i]);c++;}
+
+		}
+		sort(x,x+n);
+		for(int i=1;i<n;i++){
+			if(x[i]!=x[i-1])c++;
+			else continue;
+		}
+
+	cout<<c;
+}
